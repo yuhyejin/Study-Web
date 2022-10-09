@@ -1,0 +1,28 @@
+Server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/studyweb?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: pw12345
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+    thymeleaf:
+      cache: false
