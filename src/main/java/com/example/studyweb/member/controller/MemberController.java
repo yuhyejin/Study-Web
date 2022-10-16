@@ -34,6 +34,12 @@ public class MemberController {
         return "pages/todo";
     }
 
+    @GetMapping("/group-form")
+    public String groupForm() {
+        return "pages/groupstudy";
+    }
+
+
 
     @PostMapping("/save")
     public String save(@ModelAttribute MemberDTO memberDTO) {

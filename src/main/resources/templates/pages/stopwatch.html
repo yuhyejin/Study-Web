@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -49,7 +49,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#groupstudy" class="nav-link">
+                        <a href="/member/group-form" class="nav-link">
                             그룹스터디
                         </a>
                     </li>
@@ -87,10 +87,6 @@
             </div>
             <div class="div col-md-auto mr-5">
                 <button type="button" class="a btn btn-sm btn-secondary" onclick="location.href='/member/todo'">투두리스트</button>
-            </div>
-            <div class="div col-md-auto mr-5">
-
-                <button href="#caleandar" class="a btn btn-sm btn-secondary" type="submit">일정</button>
             </div>
         </div>
     </div>

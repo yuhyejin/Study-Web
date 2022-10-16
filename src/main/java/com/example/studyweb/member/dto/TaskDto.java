@@ -37,10 +37,10 @@ public class TaskDto {
         this.curcal = curcal;
     }
 
-    public static TaskDto toTaskDto(Task task, HttpSession session) {
+    public static TaskDto toTaskDto(Task task) {
         TaskDto taskDto = new TaskDto();
         taskDto.setTaskid(task.getTaskid());
-        taskDto.setEmail((String)session.getAttribute("loginEmail"));
+        taskDto.setEmail(task.getEmail());
         taskDto.setTitle(task.getTitle());
         taskDto.setDescription(task.getDescription());
         taskDto.setPriority(task.getPriority());

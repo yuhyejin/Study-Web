@@ -3,6 +3,27 @@
     padding: 8rem 0;
 }
 
+@font-face {
+    font-family: "NanumSquareEB";
+    src: url(/static/assets/font/NanumSquareEB.ttf) format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "NanumSquareR";
+    src: url(/static/assets/font/NanumSquareR.ttf) format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "NanumSquareB";
+    src: url(/static/assets/font/NanumSquareB.ttf) format("truetype");
+    font-weight: normal;
+}
+
+#group-mid .in {
+    margin-top: 10%;
+}
 
 /* Top Section */
 #top {
@@ -48,4 +69,53 @@ p.f1{
     font-weight: bold;
     font-size: 60px;
     color: #2c384e;
+}
+
+/* mygroup study Section */
+
+#title-top .mygroup, #group-mid .groupadd {
+    font-family: NanumSquareEB;
+}
+
+#title-top .mygroup-card-font-title, #group-mid .groupadd-card-font-title {
+    font-family: NanumSquareB;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+#title-top .mygroup-card-font-content, #group-mid .groupadd-card-font-content {
+    font-family: NanumSquareR;
+    font-size: medium;
+}
+
+#title-top .mygroup-card, #group-mid .groupadd-card {
+    width: 305px;
+    height: 200px;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+#title-top .card-btn, #group-mid .card-btn {
+    margin-top: auto;
+}
+
+/* group add study Section */
+#add-modal-btn {
+    height: 40px;
+    width: 60px;
+    margin: 3px;
+}
+
+.add-btn {
+    background-color: #AB47BC;
+    float: right;
+    color: white;
+    width: 70%;
+}
+
+.search-btn {
+    background-color: #4A148C;
+    float: right;
+    color: white;
+    width: 10%;
 }

@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class MemberService {
 
-    private  final MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
     public Long save(MemberDTO memberDTO) {
         MemberEntity memberEntity = MemberEntity.toSaveEntity(memberDTO);

@@ -44,9 +44,9 @@ public class Task {
     private Date createdDate;
 */
 
-    public static Task tasksaveEntity(TaskDto taskDto, HttpSession session) {
+    public static Task tasksaveEntity(TaskDto taskDto) {
         Task task = new Task();
-        task.setEmail((String)session.getAttribute("loginEmail"));
+        task.setEmail(taskDto.getEmail());
         task.setTitle(taskDto.getTitle());
         task.setDescription(taskDto.getDescription());
         task.setPriority(taskDto.getPriority());

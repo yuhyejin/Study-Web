@@ -34,17 +34,18 @@ function before() {
 
 
 $('#addtodo').click(function() {
+    const email = sessionStorage.getItem('loginEmail');
     const title = $('#title').val();
     const desc = $('#desc').val();
     const priority = $('input[name="inlineRadioOptions"]:checked').val();
     const curcal = getToday();
-    console.log('modal  ' + '/' + title + '/' + desc + '/' + priority + '/' + curcal);
+    console.log('modal  '+ '/' + email + '/' + title + '/' + desc + '/' + priority + '/' + curcal);
 
     if (title == '') {
         alert('할 일을 입력하세요');
     }
 
-    var JSONData = {'title': title, 'description': desc, 'priority': priority, 'curcal': curcal};
+    var JSONData = {'email': email, 'title': title, 'description': desc, 'priority': priority, 'curcal': curcal};
 
     $.ajax({
         type: 'post',
@@ -65,9 +66,6 @@ $('#addtodo').click(function() {
                 $('input[name="inlineRadioOptions"]').prop("checked" , false);
                 $('#myModal').modal('toggle');
 
-                document.getElementById("title1").innerHTML = title;
-                document.getElementById("desc1").innerHTML = desc;
-                document.getElementById("priority8").innerHTML = priority;
                 getList();
             } else {
                 alert('로그인 이후 이용해주세요.');
@@ -80,28 +78,37 @@ $('#addtodo').click(function() {
     });
 
 });
-/*
+
 getList();
 
 function getList() {
-    const taskid = $(TaskDto.)
-    const title = $('#title').val();
-    const desc = $('#desc').val();
-    const priority = $('input[name="inlineRadioOptions"]:checked').val();
 
-    $.getJSON(
-        "<c:url value='/todo/todoList/'/>"+taskid,
-        function (data) {
-            if (data.total>0) {
-                var list = data.list;
+    $.ajax({
+        type: 'GET',
+        url: "todo/todList",
+        dataTypeL: 'json',
+        success: function (result) {
 
-                var todo_html = "<div>";
-                for(i=0; i<list.length; i++) {
-                    var title = list
-                }
+            for(let i=0; result.length>i; i++) {
+                let str='<div>'
+                str += "<div class='todo-header'>";
+                str += "<div class='custom-control form-control-lg custom-checkbox col-sm-7 todo-header-item'>";
+                str+="<input type='checkbox' class='custom-control-input todo-header-item' id='customCheck1' value= 1>";
+                str+="<label class='custom-control-label todo-header-item' for='customCheck1'><h5 class='title title1'><p>" + result.title + "</p> </h5></label>";
+                str+="<span class='todo-header-item col-sm-2 dead-line-date created-date1'>" + result.curcal+ "</span>";
+                str+="<span class='todo-header-item col-sm-2 dead-line-date dead-line-date1'>" + result.priority + "</span>";
+                str+="</div>";
+                str+="<div class='todo-desc desc1'>";
+                str+="<p>"  + result.description + "</p>"
+                str+="</div>";
+                str+="<div class='todo-btn'>";
+                str+="<button type='button' class='btn btn-outline-dark' onclick='deleteTodo(1);'>삭제</button>";
+                str+="</div>";
+                str+="</div>";
+                $('#todo-div').append(str);
             }
+
         }
-    )
+    })
 }
 
- */
