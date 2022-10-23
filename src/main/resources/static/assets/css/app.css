@@ -22,7 +22,7 @@
 }
 
 #group-mid .in {
-    margin-top: 10%;
+    margin-top: 10px;
 }
 
 /* Top Section */
@@ -77,18 +77,39 @@ p.f1{
     font-family: NanumSquareEB;
 }
 
+#group-mid .group-category {
+    color: #86A500;
+}
+
+#title-top .noList {
+    color: #999999;
+}
+
+#group-mid .group-orig {
+    color: darkgray;
+}
+
 #title-top .mygroup-card-font-title, #group-mid .groupadd-card-font-title {
     font-family: NanumSquareB;
     font-weight: bold;
-    font-size: x-large;
+/*    font-size: x-large;*/
 }
 
 #title-top .mygroup-card-font-content, #group-mid .groupadd-card-font-content {
     font-family: NanumSquareR;
-    font-size: medium;
+/*    font-size: medium; */
 }
 
-#title-top .mygroup-card, #group-mid .groupadd-card {
+#title-top .notList {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #999999;
+}
+
+#title-top .mygroup-card{
     width: 305px;
     height: 200px;
     max-width: 100%;
@@ -102,20 +123,17 @@ p.f1{
 /* group add study Section */
 #add-modal-btn {
     height: 40px;
-    width: 60px;
+    width: 50px;
     margin: 3px;
 }
 
-.add-btn {
-    background-color: #AB47BC;
-    float: right;
+#add-btn {
+    background-color: #86A500;
     color: white;
-    width: 70%;
+    float: right;
 }
 
-.search-btn {
-    background-color: #4A148C;
-    float: right;
+#search-btn {
+    background-color: #86A500;
     color: white;
-    width: 10%;
 }

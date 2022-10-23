@@ -19,18 +19,18 @@ public class TaskService {
 
     private final TaskRepository taskRepository;
 
-    public Long save(TaskDto taskDto) {
-        Task task = Task.tasksaveEntity(taskDto);
+    public Long save(TaskDto taskDto, HttpSession session) {
+        Task task = Task.tasksaveEntity(taskDto, session);
         Long toinsertId = taskRepository.save(task).getTaskid();
         return toinsertId;
 
     }
 
-    public List<TaskDto> todoList() {
+    public List<TaskDto> todoList(HttpSession session) {
         List<Task> taskList = taskRepository.findAll();
         List<TaskDto> taskDtoList = new ArrayList<>();
         for (Task task: taskList) {
-            TaskDto taskDto = TaskDto.toTaskDto(task);
+            TaskDto taskDto = TaskDto.toTaskDto(task, session);
             taskDtoList.add(taskDto);
         }
         return taskDtoList;

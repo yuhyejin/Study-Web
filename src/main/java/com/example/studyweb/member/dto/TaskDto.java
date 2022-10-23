@@ -1,6 +1,5 @@
 package com.example.studyweb.member.dto;
 
-import com.example.studyweb.member.entity.MemberEntity;
 import com.example.studyweb.member.entity.Task;
 import lombok.Data;
 import lombok.Getter;
@@ -37,10 +36,10 @@ public class TaskDto {
         this.curcal = curcal;
     }
 
-    public static TaskDto toTaskDto(Task task) {
+    public static TaskDto toTaskDto(Task task, HttpSession session) {
         TaskDto taskDto = new TaskDto();
         taskDto.setTaskid(task.getTaskid());
-        taskDto.setEmail(task.getEmail());
+        taskDto.setEmail((String) session.getAttribute("loginEmail"));
         taskDto.setTitle(task.getTitle());
         taskDto.setDescription(task.getDescription());
         taskDto.setPriority(task.getPriority());

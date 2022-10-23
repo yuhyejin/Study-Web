@@ -5,17 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
-          integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
-          integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
     <link rel="stylesheet" href="/assets/css/app.css">
     <link rel="stylesheet" href="/assets/css/default.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -24,7 +17,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-lg sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-sm sticky-top">
     <div class="container">
         <a href="#" class="navbar-brand align-middle">
             <h3 class="m-0">
@@ -39,8 +32,8 @@
         <div class="collepse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-0 mb-lg-50">
                 <li class="nav-item">
-                    <a href="#top" class="nav-link">
-                        홈
+                    <a href="/pages/stopwatch.html" class="nav-link">
+                        스톱워치
                     </a>
                 </li>
                 <li class="nav-item">
@@ -49,7 +42,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#groupstudy" class="nav-link">
+                    <a href="/group/group-list" class="nav-link">
                         그룹스터디
                     </a>
                 </li>
@@ -75,7 +68,7 @@
                 </li>
             </ul>
             <form class="d-flex" role="signupbtn">
-                <button class="btn btn-sm btn-success" type="submit">회원가입</button>
+                <button class="btn btn-sm btn-success" onclick="location.href='index.html'">로그인</button>
             </form>
         </div>
     </div>
@@ -84,86 +77,60 @@
 <section id="title-top">
     <div class="container-xxl">
         <div class="row my-5">
-            <div class="row">
-                <h3 class="mygroup">내가 가입한 그룹</h3>
+            <div class="row py-5">
+                <h4 class="mygroup">내가 가입한 그룹</h4>
             </div>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="/assets/images/study.jpeg" class="card-img-top mygroup-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title mygroup-card-font-title"> 같이 공부해요. </h5>
-                        <p class="card-text mygroup-card-font-content">This is a longer card with supporting text below as a
-                            natural lead-in to additional content. This content is a little bit longer.</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
+        <div class="notList" th:if="${#lists.isEmpty(myGroupList)}">
+            <h4 class="item py-5">가입된 그룹이 없습니다.</h4>
+        </div>
 
-            <div class="col">
-                <div class="card h-100">
-                    <img class="mygroup-card" src="/assets/images/study1.jpeg" class="card-img-top mygroup-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title mygroup-card-font-title"> 같이 공부해욤</h5>
-                        <p class="card-text"> 같이 시험 공부 합시다 으쌰으쌰</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100">
-                    <img class="mygroup-card" src="/assets/images/study2.jpeg" class="card-img-top mygroup-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title mygroup-card-font-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                            content.</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100">
-                    <img class="mygroup-card" src="/assets/images/study4.png" class="card-img-top mygroup-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title mygroup-card-font-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                            content. This content is a little bit longer.</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
+        <div th:unless="${#lists.isEmpty(myGroupList)}">
+            <div th:each="myGroup: ${myGroupList}">
+                <div class="row row-cols-1 row-cols-md-4 g-4">
+                    <div class="col">
+                        <div class="card h-100">
+                            <!-- <img src="/assets/images/study.jpeg" class="card-img-top mygroup-card" alt="..."> -->
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title group-card-font-title"></h5>
+                                <p class="card-text group-card-font-content"></p>
+                                <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
     </div>
 </section>
 
-<section id="group-mid">
+<section id="group-mid" class="in">
     <div class="container-xxl">
-        <div class="row my-5 d-flex align-items-center justify-content-between">
-            <div class="col-2">
-                <h3 class="groupadd">스터디 그룹</h3>
+        <div class="row py-5 ">
+            <div class="col-4">
+                <h4 class="groupadd">스터디 그룹</h4>
             </div>
 
-            <div class="col-2 flex-fill">
+            <div class="col-6">
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="검색" aria-label="Search">
-                    <button type="button" class="btn search-btn">검색</button>
+                    <input class="form-control me-2" type="search" placeholder="검색" aria-label="Search"
+                           style="width:450px; height:40px;">
+                    <button type="button" class="btn" id="search-btn">검색</button>
                 </form>
             </div>
 
-            <div class="col-2" id="add-modaldtn">
-                <button type="button" class="btn add-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="col" id="add-modal-btn">
+                <button type="button" class="btn" id="add-btn" data-bs-toggle="modal" data-bs-target="#groupModal">
                     그룹 추가
                 </button>
             </div>
         </div>
 
         <!-- Modal -->
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="groupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -173,308 +140,112 @@
                     </div>
 
                     <div class="modal-body">
-                        <form>
+                        <form name="group-form">
                             <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">그룹명 :</label>
-                                <input type="text" class="form-control">
+                                <label for="groupname" class="col-form-label">그룹명 :</label>
+                                <input type="text" class="form-control" id="groupname">
                             </div>
                             <div class="mb-3">
-                                <label for="message-text" class="col-form-label">카테고리 :</label>
+                                <label for="category" class="col-form-label">카테고리 :</label>
                                 <select name="category" id="category">
-                                    <option value="">--카테고리 선택--</option>
-                                    <option value="elementary">초등학교</option>
-                                    <option value="middle">중학교</option>
-                                    <option value="high">고등학교</option>
-                                    <option value="nhigh">N수생</option>
-                                    <option value="university">대학생</option>
-                                    <option value="nextuniv">대학원생</option>
-                                    <option value="civil">공무원</option>
-                                    <option value="license">자격증</option>
+                                    <option value="" selected>--카테고리 선택--</option>
+                                    <option value="초등학생">초등학생</option>
+                                    <option value="중학생">중학생</option>
+                                    <option value="고등학생">고등학생</option>
+                                    <option value="N수생">N수생</option>
+                                    <option value="대학생">대학생</option>
+                                    <option value="대학원생">대학원생</option>
+                                    <option value="공무원">공무원</option>
+                                    <option value="자격증">자격증</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="message-text" class="col-form-label">일일 목표 시간 :</label>
+                                <label for="goaltime" class="col-form-label">일일 목표 시간 :</label>
                                 <select name="goaltime" id="goaltime">
-                                    <option value="">--목표시간 선택--</option>
-                                    <option value="1">하루 1시간</option>
-                                    <option value="2">하루 2시간</option>
-                                    <option value="3">하루 3시간</option>
-                                    <option value="4">하루 4시간</option>
-                                    <option value="5">하루 5시간</option>
-                                    <option value="6">하루 6시간</option>
-                                    <option value="7">하루 7시간</option>
-                                    <option value="8">하루 9시간</option>
-                                    <option value="9">하루 10시간</option>
-                                    <option value="10">하루 11시간</option>
-                                    <option value="11">하루 12시간</option>
-                                    <option value="12">하루 13시간</option>
-                                    <option value="13">하루 14시간</option>
-                                    <option value="14">하루 15시간</option>
-                                    <option value="15">하루 16시간</option>
-                                    <option value="16">하루 17시간</option>
-                                    <option value="17">하루 18시간</option>
-                                    <option value="18">하루 19시간</option>
-                                    <option value="19">하루 20시간</option>
+                                    <option value="" selected>--목표시간 선택--</option>
+                                    <option value="하루 1시간">하루 1시간</option>
+                                    <option value="하루 2시간">하루 2시간</option>
+                                    <option value="하루 3시간">하루 3시간</option>
+                                    <option value="하루 4시간">하루 4시간</option>
+                                    <option value="하루 5시간">하루 5시간</option>
+                                    <option value="하루 6시간">하루 6시간</option>
+                                    <option value="하루 7시간">하루 7시간</option>
+                                    <option value="하루 8시간">하루 8시간</option>
+                                    <option value="하루 9시간">하루 9시간</option>
+                                    <option value="하루 10시간">하루 10시간</option>
+                                    <option value="하루 11시간">하루 11시간</option>
+                                    <option value="하루 12시간">하루 12시간</option>
+                                    <option value="하루 13시간">하루 13시간</option>
+                                    <option value="하루 14시간">하루 14시간</option>
+                                    <option value="하루 15시간">하루 15시간</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="message-text" class="col-form-label">모집인원 :</label>
+                                <label for="people" class="col-form-label">모집인원 :</label>
                                 <select name="people" id="people">
-                                    <option value="">--모집인원 선택--</option>
-                                    <option value="people2">2명</option>
-                                    <option value="people3">3명</option>
-                                    <option value="people4">4명</option>
-                                    <option value="people5">5명</option>
-                                    <option value="people6">6명</option>
-                                    <option value="people7">7명</option>
-                                    <option value="people8">8명</option>
-                                    <option value="people9">9명</option>
-                                    <option value="people10">10명</option>
+                                    <option value="" selected>--모집인원 선택--</option>
+                                    <option value="1/2">2명</option>
+                                    <option value="1/3">3명</option>
+                                    <option value="1/4">4명</option>
+                                    <option value="1/5">5명</option>
+                                    <option value="1/6">6명</option>
+                                    <option value="1/7">7명</option>
+                                    <option value="1/8">8명</option>
+                                    <option value="1/9">9명</option>
+                                    <option value="1/10">10명</option>
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label for="message-text" class="col-form-label">비밀번호 :</label>
-                                <input type="text" class="form-control" id="recipient-name" placeholder="(선택사항)">
+                                <label for="grouppassword" class="col-form-label">비밀번호 :</label>
+                                <input type="text" class="form-control" id="grouppassword" placeholder="(선택사항)">
                             </div>
                             <div class="mb-3">
-                                <label for="message-text" class="col-form-label">그룹 소개 / 공지 :</label>
-                                <textarea class="form-control" id="message-text"></textarea>
+                                <label for="groupinfo" class="col-form-label">그룹 소개 / 공지 :</label>
+                                <textarea class="form-control" id="groupinfo"></textarea>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                        <button type="button" class="btn btn-primary">추가</button>
+                        <button type="button" class="btn btn-primary" id="addstudy">추가</button>
                     </div>
                 </div>
             </div>
         </div>
 
 
+        <th:if test="${!empty GroupList}">
+            <div th:each="groups: ${GroupList}" id="add">
+                <div class="row my-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <form>
+                                <h6 th:text="${groups.category}" class="group-category"></h6>
+                                <h5 class="card-title groupadd-card-font-title" th:text="${groups.groupname}"></h5>
+                                <p class="card-text"><span class="group-orig">목표</span> <span
+                                        th:text="${groups.goaltime}"></span> &nbsp;
+                                    <span class="group-orig">인원</span> <span th:text="${groups.people}"></span> &nbsp;
+                                    <span class="group-orig">그룹장</span> <span th:text="${groups.goaltime}"></span> &nbsp;
+                                    <span class="group-orig">시작일</span> <span th:text="${groups.goaltime}"></span> &nbsp;
+                                <p><span class="group-orig">소개/공지</span> <span th:text="${groups.groupinfo}"></span></p></p>
+                                <input type="hidden" id="group_seq" th:text="${groups.id}">
+                            </form>
 
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="/assets/images/study.jpeg" class="card-img-top groupadd-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title groupadd-card-font-title"> 같이 공부해요. </h5>
-                        <p class="card-text groupadd-card-font-content">This is a longer card with supporting text below as a
-                            natural lead-in to additional content. This content is a little longer.</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
+                            <button type="button" class="btn btn-outline-success" id="group-add">추가</button>
+                        </div>
                     </div>
                 </div>
             </div>
+            </th:each>
+        </th:if>
 
-            <div class="col">
-                <div class="card h-100">
-                    <img src="/assets/images/study1.jpeg" class="card-img-top groupadd-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title groupadd-card-font-title"> 같이 공부해욤</h5>
-                        <p class="card-text"> 같이 시험 공부 합시다 으쌰으쌰</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100">
-                    <img src="/assets/images/study2.jpeg" class="card-img-top groupadd-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title groupadd-card-font-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                            content.</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100">
-                    <img src="/assets/images/study4.png" class="card-img-top groupadd-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title groupadd-card-font-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                            content. This content is a little longer.</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100">
-                    <img src="/assets/images/study.jpeg" class="card-img-top groupadd-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title groupadd-card-font-title"> 같이 공부해요. </h5>
-                        <p class="card-text groupadd-card-font-content">This is a longer card with supporting text below as a
-                            natural lead-in to additional content. This content is a little longer.</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100">
-                    <img src="/assets/images/study1.jpeg" class="card-img-top groupadd-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title groupadd-card-font-title"> 같이 공부해욤</h5>
-                        <p class="card-text"> 같이 시험 공부 합시다 으쌰으쌰</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100">
-                    <img src="/assets/images/study2.jpeg" class="card-img-top groupadd-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title groupadd-card-font-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                            content.</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100">
-                    <img src="/assets/images/study4.png" class="card-img-top groupadd-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title groupadd-card-font-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                            content. This content is a little longer.</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100">
-                    <img src="/assets/images/study.jpeg" class="card-img-top groupadd-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title groupadd-card-font-title"> 같이 공부해요. </h5>
-                        <p class="card-text groupadd-card-font-content">This is a longer card with supporting text below as a
-                            natural lead-in to additional content. This content is a little longer.</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100">
-                    <img src="/assets/images/study1.jpeg" class="card-img-top groupadd-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title groupadd-card-font-title"> 같이 공부해욤</h5>
-                        <p class="card-text"> 같이 시험 공부 합시다 으쌰으쌰</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100">
-                    <img src="/assets/images/study2.jpeg" class="card-img-top groupadd-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title groupadd-card-font-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                            content.</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100">
-                    <img src="/assets/images/study4.png" class="card-img-top groupadd-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title groupadd-card-font-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                            content. This content is a little longer.</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100">
-                    <img src="/assets/images/study.jpeg" class="card-img-top groupadd-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title groupadd-card-font-title"> 같이 공부해요. </h5>
-                        <p class="card-text groupadd-card-font-content">This is a longer card with supporting text below as a
-                            natural lead-in to additional content. This content is a little longer.</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100">
-                    <img src="/assets/images/study1.jpeg" class="card-img-top groupadd-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title groupadd-card-font-title"> 같이 공부해욤</h5>
-                        <p class="card-text"> 같이 시험 공부 합시다 으쌰으쌰</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100">
-                    <img src="/assets/images/study2.jpeg" class="card-img-top groupadd-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title groupadd-card-font-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                            content.</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card h-100">
-                    <img src="/assets/images/study4.png" class="card-img-top groupadd-card" alt="...">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title groupadd-card-font-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                            content. This content is a little longer.</p>
-                        <button type="button" class="align-self-end btn btn-outline-danger card-btn">입장</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row my-5 justify-content-center">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center bg-light">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
     </div>
 </section>
 
 
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
-        integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="/assets/js/todo.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="/assets/js/groupstudy.js"></script>
 </body>
 
 </html>

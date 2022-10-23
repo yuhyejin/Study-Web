@@ -38,15 +38,11 @@ public class Task {
         this.priority = priority;
         this.curcal = curcal;
     }
-/*
-    @Column(name = "created_date")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "Asia/Seoul")
-    private Date createdDate;
-*/
 
-    public static Task tasksaveEntity(TaskDto taskDto) {
+
+    public static Task tasksaveEntity(TaskDto taskDto, HttpSession session) {
         Task task = new Task();
-        task.setEmail(taskDto.getEmail());
+        task.setEmail((String) session.getAttribute("loginEmail"));
         task.setTitle(taskDto.getTitle());
         task.setDescription(taskDto.getDescription());
         task.setPriority(taskDto.getPriority());

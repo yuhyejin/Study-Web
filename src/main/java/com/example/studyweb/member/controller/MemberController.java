@@ -36,7 +36,7 @@ public class MemberController {
 
     @GetMapping("/group-form")
     public String groupForm() {
-        return "pages/groupstudy";
+        return "/pages/groupstudy";
     }
 
 
@@ -52,7 +52,7 @@ public class MemberController {
         MemberDTO loginResult = memberService.login(memberDTO);
         if (loginResult != null) {
             session.setAttribute("loginEmail", loginResult.getEmail());
-            session.setAttribute("id", loginResult.getId());
+            session.setAttribute("nickName", loginResult.getNickname());
             return "pages/stopwatch";
         } else {
             return "/index";

@@ -20,20 +20,25 @@ public class TodoController {
     private final TaskService taskService;
 
     @PostMapping("/inserttodo")
-    public String insertTodo (@RequestBody TaskDto taskDto) {
-        taskService.save(taskDto);
+    public String insertTodo (@RequestBody TaskDto taskDto, HttpSession session) {
+        taskService.save(taskDto, session);
         System.out.println("할일 등록!");
         return "InsertSuccess";
     }
 
-    @GetMapping("/todList")
-    public List<TaskDto> todoList(Model model, HttpSession session) {
+    @GetMapping("/todoList")
+    public String todoList(Model model, HttpSession session) {
+        System.out.println("되나,,???");
         if(session.getAttribute("loginEmail") != null) {
-            List<TaskDto> taskDtoList = taskService.todoList();
+            List<TaskDto> taskDtoList = taskService.todoList(session);
             model.addAttribute("todoList", taskDtoList);
-            return taskDtoList;
+            for(TaskDto data: taskDtoList){
+                System.out.println(data); //콘솔 출력
+            }
+            return "pages/todo";
         }
         else
+            System.out.println("왜안돼에에에ㅔ");
             return null;
     }
 
