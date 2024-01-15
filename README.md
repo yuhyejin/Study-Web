@@ -4,6 +4,9 @@
 
 <img width="1096" alt="스크린샷 2023-05-17 오후 9 20 43" src="https://github.com/yuhyejin/Study-Web/assets/74812194/9d12e6b9-bc99-4624-be15-7fb6415f3fbc">
 
+## 시연영상
+https://github.com/yuhyejin/Study-Web/assets/74812194/32554258-21af-4e83-b1b1-4f975707bdf4
+
 <img width="1095" alt="스크린샷 2023-05-17 오후 9 20 51" src="https://github.com/yuhyejin/Study-Web/assets/74812194/0a7b16dd-32c1-4ac1-a101-c2ab0f94789f">
 
 <img width="1096" alt="스크린샷 2023-05-17 오후 9 21 01" src="https://github.com/yuhyejin/Study-Web/assets/74812194/cbe7a334-5049-4f80-838b-70c4830332f9">
